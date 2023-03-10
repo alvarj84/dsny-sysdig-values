@@ -1,0 +1,87 @@
+## Here you can find all the different fields for each chart as well as the default values 
+## https://github.com/sysdiglabs/charts/tree/master/charts/sysdig-deploy
+global:
+  clusterConfig:
+    name: mims_qa
+  sysdig:
+    accessKey: YOUR-KEY
+    region: us2
+    tags: 
+      cloud: novas
+      environment: nov_prod
+  proxy:
+    httpProxy: http://smartproxydev:dsnysv_137@10.155.126.15:8080
+    httpsProxy: http://smartproxydev:dsnysv_137@10.155.126.15:8080
+    noProxy: 27.0.0.1,10.*,*.nycnet,localhost,192.168.0.0/16
+  kspm:
+    deploy: true
+
+agent:
+  ## Enabled proxy for communication from agent to collector. See https://docs.sysdig.com/en/docs/installation/sysdig-agent/agent-configuration/tune-agent/enable-http-proxy-for-agents/
+  # sysdig:
+  #   settings:
+  #     http_proxy:
+  #       proxy_host: 10.155.126.15
+  #       proxy_port: 8080
+  #       proxy_user: smartproxydev
+  #       proxy_password: dsnysv_137
+  #       ssl: false
+  image:
+    tag: 12.3.1
+  tolerations:
+    - key: node-role.kubernetes.io/controlplane
+      operator: Exists
+      effect: NoSchedule
+    - key: node-role.kubernetes.io/etcd
+      operator: Exists
+      effect: NoExecute
+    - key: node-role.kubernetes.io/controlplane
+      operator: Exists
+      effect: NoSchedule
+    - key: node-role.kubernetes.io/controlplane
+      operator: Exists
+      effect: NoSchedule
+
+
+nodeAnalyzer:
+  nodeAnalyzer:
+    # Will be retired soon, replaced by KSPM. 
+    benchmarkRunner:
+      deploy: false
+    # Legacy engine host scanner
+    hostAnalyzer:
+      deploy: true
+      image:
+        tag: 0.1.14
+    # Legacy engine image scanner
+    imageAnalyzer:
+      deploy: true
+      image:
+        tag: 0.1.22
+    # New engine host scanner
+    hostScanner:
+      deploy: false
+      image:
+        tag: 0.3.4
+    # New engine image scanner
+    runtimeScanner:
+      deploy: true
+      image:
+        tag: 1.4.4
+    # See Global section to disable KSPM.
+    kspmAnalyzer:
+      image:
+        tag: 1.15.0
+    tolerations:
+        - key: node-role.kubernetes.io/controlplane
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/etcd
+          operator: Exists
+          effect: NoExecute
+        - key: node-role.kubernetes.io/controlplane
+          operator: Exists
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/controlplane
+          operator: Exists
+          effect: NoSchedule
