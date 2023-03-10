@@ -26,8 +26,8 @@ agent:
   #       proxy_user: smartproxydev
   #       proxy_password: dsnysv_137
   #       ssl: false
-  image:
-    tag: 12.3.1
+  # image:
+  #   tag: 12.3.1
   tolerations:
     - key: node-role.kubernetes.io/controlplane
       operator: Exists
@@ -50,28 +50,28 @@ nodeAnalyzer:
       deploy: false
     # Legacy engine host scanner
     hostAnalyzer:
-      deploy: true
-      image:
-        tag: 0.1.14
+      deploy: false
+      # image:
+      #   tag: 0.1.14
     # Legacy engine image scanner
     imageAnalyzer:
-      deploy: true
-      image:
-        tag: 0.1.22
+      deploy: false
+      # image:
+      #   tag: 0.1.22
     # New engine host scanner
     hostScanner:
-      deploy: false
-      image:
-        tag: 0.3.4
+      deploy: true
+      # image:
+      #   tag: 0.3.4
     # New engine image scanner
     runtimeScanner:
       deploy: true
-      image:
-        tag: 1.4.4
+      # image:
+      #   tag: 1.4.4
     # See Global section to disable KSPM.
-    kspmAnalyzer:
-      image:
-        tag: 1.15.0
+    # kspmAnalyzer:
+    #   image:
+    #     tag: 1.15.0
     tolerations:
         - key: node-role.kubernetes.io/controlplane
           operator: Exists
