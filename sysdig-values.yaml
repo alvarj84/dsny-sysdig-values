@@ -54,8 +54,6 @@ nodeAnalyzer:
     # Legacy engine image scanner
     imageAnalyzer:
       deploy: false
-      # image:
-      #   tag: 0.1.22
     # New engine host scanner
     hostScanner:
       deploy: true
