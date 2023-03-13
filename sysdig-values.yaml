@@ -67,9 +67,6 @@ nodeAnalyzer:
       # image:
       #   tag: 1.4.4
     # See Global section to disable KSPM.
-    # kspmAnalyzer:
-    #   image:
-    #     tag: 1.15.0
     tolerations:
         - key: node-role.kubernetes.io/controlplane
           operator: Exists
