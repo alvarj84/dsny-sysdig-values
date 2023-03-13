@@ -64,8 +64,6 @@ nodeAnalyzer:
     # New engine image scanner
     runtimeScanner:
       deploy: true
-      # image:
-      #   tag: 1.4.4
     # See Global section to disable KSPM.
     tolerations:
         - key: node-role.kubernetes.io/controlplane
