@@ -26,8 +26,6 @@ agent:
   #       proxy_user: smartproxydev
   #       proxy_password: dsnysv_137
   #       ssl: false
-  # image:
-  #   tag: 12.3.1
   tolerations:
     - key: node-role.kubernetes.io/controlplane
       operator: Exists
